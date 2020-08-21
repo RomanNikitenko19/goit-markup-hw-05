@@ -28,6 +28,7 @@
   --footer-secondary-text-color: rgba(255, 255, 255, 0.6);
   --prime-border-color: #afb1b8;
   --prime-icon-bgc: #ffffff;
+  --backdrop-icon-color: #000000;
   --secondary-icon-bgc: rgba(255, 255, 255, 0.1);
   --box-shadow-first: rgba(0, 0, 0, 0.12);
   --box-shadow-secondary: rgba(0, 0, 0, 0.14);
@@ -110,6 +111,10 @@ svg {
   background-color: var(--box-shadow-third);
 }
 
+.backdrop svg {
+  fill: var(--backdrop-icon-color);
+}
+
 .is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -124,6 +129,9 @@ svg {
   height: 581px;
 
   background: var(--primary-background-color);
+  box-shadow: 0px 1px 3px var(--batton-shadow-third), 0px 1px 1px var(--box-shadow-secondary),
+    0px 2px 1px var(--box-shadow-third);
+  border-radius: 4px;
 }
 
 .form-wrapper-close-btn {
@@ -133,18 +141,17 @@ svg {
   width: 30px;
   height: 30px;
   cursor: pointer;
-  
+
   background: var(--primary-background-color);
   border: 1px solid var(--batton-shadow-first);
   border-radius: 50%;
   box-sizing: border-box;
-  }
+}
 
 /* Шапка */
 .page-header {
   padding-top: 24px;
   padding-bottom: 25px;
-
 }
 
 nav {
@@ -203,6 +210,9 @@ nav .list {
 .header-icon:focus {
   fill: var(--secondary-link-color);
 } */
+.item-socialnetworks {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .list-socialnetworks .item:not(:last-child) {
   margin-right: 10px;
@@ -238,6 +248,22 @@ nav .list {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.site-nav .item .link {
+  position: relative;
+}
+.site-nav .link:hover::after,
+.site-nav .link:focus::after,
+.site-nav .link.current::after {
+  display: block;
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 45px;
+  border-radius: 2px;
+  height: 4px;
+  background-color: var(--secondary-link-color);
 }
 
 .site-nav .item:not(:last-child) {
@@ -267,6 +293,7 @@ nav .list {
 
   display: flex;
   align-items: center;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav .link:hover,
@@ -289,11 +316,7 @@ nav .list {
   /* margin-left: auto; */
   /* margin-right: auto; */
   /* outline: 1px solid var(--hero-bgc); */
-  background-image: linear-gradient(
-      var(--hero-bg-gradient),
-      var(--hero-bg-gradient)
-    ),
-    /* ??? */ url(../images/Hero.jpg);
+  background-image: linear-gradient(var(--hero-bg-gradient), var(--hero-bg-gradient)), /* ??? */ url(../images/Hero.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -490,8 +513,8 @@ nav .list {
 .ourteam-content {
   background-color: var(--primary-background-color);
 
-  box-shadow: 0px 1px 3px var(--box-shadow-first),
-    0px 1px 1px var(--box-shadow-secondary), 0px 2px 1px var(--box-shadow-third);
+  box-shadow: 0px 1px 3px var(--box-shadow-first), 0px 1px 1px var(--box-shadow-secondary),
+    0px 2px 1px var(--box-shadow-third);
   border-radius: 0px 0px 4px 4px;
 }
 /* .ourteam .item {
@@ -565,6 +588,7 @@ nav .list {
 /* Постоянные клиенты */
 .clients-list {
   display: flex;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients a {
@@ -619,12 +643,15 @@ nav .list {
   flex-wrap: wrap;
 }
 
+.gallery-work .item {
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .gallery-work .item:hover {
   box-sizing: border-box;
   background-color: var(--primary-background-color);
 
-  box-shadow: 0px 1px 1px var(--batton-shadow-third),
-    0px 4px 4px var(--batton-shadow-fourth),
+  box-shadow: 0px 1px 1px var(--batton-shadow-third), 0px 4px 4px var(--batton-shadow-fourth),
     1px 4px 6px var(--batton-shadow-fifth);
 }
 
@@ -666,8 +693,7 @@ nav .list {
   color: var(--prime-button-title);
   background-color: var(--bg-button-color);
 
-  box-shadow: 0px 3px 1px var(--batton-shadow-first),
-    0px 1px 2px var(--batton-shadow-secondary),
+  box-shadow: 0px 3px 1px var(--batton-shadow-first), 0px 1px 2px var(--batton-shadow-secondary),
     0px 2px 2px var(--batton-shadow-third);
   border: none;
 }
@@ -718,7 +744,6 @@ nav .list {
 
 .gallery a:hover .gallery-work-text-container {
   transform: translateY(0%);
-  
 }
 
 .gallery-work-text-container p {
@@ -729,7 +754,6 @@ nav .list {
   line-height: 1.56;
   letter-spacing: 0.03em;
   color: var(--secondary-title-color);
- 
 }
 
 .gallery-work-photo-container {
